@@ -1,0 +1,39 @@
+{
+  "name": "freshdesk",
+  "service": "freshdesk",
+  "description": "Manage Freshdesk helpdesk tickets, contacts, agents, companies, and groups",
+  "tags": ["freshdesk", "helpdesk", "support", "tickets", "customer-service"],
+  "entities": [
+    {
+      "name": "Ticket",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "subject", "description", "status", "priority", "type", "requester_id", "responder_id", "group_id", "tags"]
+    },
+    {
+      "name": "Contact",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "name", "email", "phone", "mobile", "company_id", "job_title", "active"]
+    },
+    {
+      "name": "Agent",
+      "operations": ["query"],
+      "attributes": ["id", "email", "name", "active", "job_title", "phone", "role"]
+    },
+    {
+      "name": "Company",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "name", "description", "note", "domains", "industry"]
+    },
+    {
+      "name": "Group",
+      "operations": ["query"],
+      "attributes": ["id", "name", "description", "agent_ids"]
+    }
+  ],
+  "auth": {
+    "envVars": ["FRESHDESK_API_KEY", "FRESHDESK_DOMAIN"],
+    "scheme": "basic"
+  },
+  "repo": "agentlang-hub/resolvers",
+  "version": "0.0.1"
+}

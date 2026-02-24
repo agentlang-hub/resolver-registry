@@ -1,0 +1,49 @@
+{
+  "name": "infoblox",
+  "service": "infoblox",
+  "description": "Manage Infoblox DNS records (AAAA, CNAME, MX, TXT, PTR, Host) and networks via the WAPI",
+  "tags": ["infoblox", "dns", "networking", "ip-address", "infrastructure", "ipam"],
+  "entities": [
+    {
+      "name": "AAAA",
+      "operations": ["create", "query", "delete"],
+      "attributes": ["_ref", "name", "ipv6addr"]
+    },
+    {
+      "name": "CNAME",
+      "operations": ["create", "query", "delete"],
+      "attributes": ["_ref", "name", "canonical"]
+    },
+    {
+      "name": "MX",
+      "operations": ["create", "query", "delete"],
+      "attributes": ["_ref", "name", "preference", "mail_exchanger"]
+    },
+    {
+      "name": "TXT",
+      "operations": ["create", "query", "delete"],
+      "attributes": ["_ref", "name", "text"]
+    },
+    {
+      "name": "PTR",
+      "operations": ["create", "query", "delete"],
+      "attributes": ["_ref", "ptrdname", "ipv4addr"]
+    },
+    {
+      "name": "Host",
+      "operations": ["create", "query", "delete"],
+      "attributes": ["_ref", "name", "ipaddress"]
+    },
+    {
+      "name": "Network",
+      "operations": ["create", "query", "delete"],
+      "attributes": ["_ref", "network"]
+    }
+  ],
+  "auth": {
+    "envVars": ["INFOBLOX_BASE_URL", "INFOBLOX_USERNAME", "INFOBLOX_PASSWORD"],
+    "scheme": "basic"
+  },
+  "repo": "agentlang-hub/resolvers",
+  "version": "0.0.1"
+}

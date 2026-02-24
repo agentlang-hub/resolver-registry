@@ -1,0 +1,44 @@
+{
+  "name": "google-drive",
+  "service": "google-drive",
+  "description": "Manage Google Drive documents, folders, files, and uploads via the Google Drive API",
+  "tags": ["google-drive", "google", "cloud-storage", "documents", "files", "folders"],
+  "entities": [
+    {
+      "name": "Document",
+      "operations": ["query", "update", "delete"],
+      "attributes": ["id", "url", "title", "mime_type", "updated_at"]
+    },
+    {
+      "name": "Folder",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "url", "title", "mime_type", "updated_at"]
+    },
+    {
+      "name": "File",
+      "operations": ["query", "update", "delete"],
+      "attributes": ["id", "name", "mime_type", "parents", "modified_time", "web_view_link"]
+    },
+    {
+      "name": "Drive",
+      "operations": ["query"],
+      "attributes": ["id", "name", "kind", "created_time"]
+    },
+    {
+      "name": "FileContent",
+      "operations": ["query"],
+      "attributes": ["id", "name", "content", "size", "modified_time"]
+    },
+    {
+      "name": "FolderContent",
+      "operations": ["query"],
+      "attributes": ["files", "folders", "next_cursor"]
+    }
+  ],
+  "auth": {
+    "envVars": ["GOOGLE_ACCESS_TOKEN", "GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET", "GOOGLE_REFRESH_TOKEN"],
+    "scheme": "oauth2"
+  },
+  "repo": "agentlang-hub/resolvers",
+  "version": "0.0.1"
+}

@@ -1,0 +1,39 @@
+{
+  "name": "zohoexpense",
+  "service": "zoho-expense",
+  "description": "Manage Zoho Expense expenses, reports, currencies, categories, and attachments",
+  "tags": ["zoho", "expenses", "reports", "finance", "accounting", "reimbursement"],
+  "entities": [
+    {
+      "name": "Expense",
+      "operations": ["create", "query"],
+      "attributes": ["id", "report_id", "amount", "currency", "description", "status", "merchant", "category"]
+    },
+    {
+      "name": "Report",
+      "operations": ["create", "query"],
+      "attributes": ["id", "report_name", "description", "status", "start_date", "end_date"]
+    },
+    {
+      "name": "Currency",
+      "operations": ["query"],
+      "attributes": ["id", "code", "name", "symbol", "is_base", "exchange_rate"]
+    },
+    {
+      "name": "ExpenseCategory",
+      "operations": ["query"],
+      "attributes": ["id", "name", "parent_id", "status", "is_active", "type"]
+    },
+    {
+      "name": "ExpenseAttachment",
+      "operations": ["create"],
+      "attributes": ["id", "expense_id", "file_name", "file_path", "content_type"]
+    }
+  ],
+  "auth": {
+    "envVars": ["ZOHO_EXPENSE_ACCESS_TOKEN", "ZOHO_EXPENSE_CLIENT_ID", "ZOHO_EXPENSE_CLIENT_SECRET", "ZOHO_EXPENSE_REFRESH_TOKEN", "ZOHO_EXPENSE_ORG_ID"],
+    "scheme": "oauth2"
+  },
+  "repo": "agentlang-hub/resolvers",
+  "version": "0.0.1"
+}

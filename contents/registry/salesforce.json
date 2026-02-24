@@ -1,0 +1,44 @@
+{
+  "name": "salesforce",
+  "service": "salesforce",
+  "description": "Manage Salesforce CRM contacts, leads, accounts, opportunities, tickets, and knowledge articles",
+  "tags": ["salesforce", "crm", "contacts", "leads", "accounts", "opportunities", "sales"],
+  "entities": [
+    {
+      "name": "Contact",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "first_name", "last_name", "email", "phone", "account_id", "title", "owner_id"]
+    },
+    {
+      "name": "Lead",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "first_name", "last_name", "company_name", "email", "phone", "industry", "website"]
+    },
+    {
+      "name": "Account",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "name", "description", "website", "industry", "billing_city", "billing_country"]
+    },
+    {
+      "name": "Opportunity",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "opportunity_name", "account_id", "amount", "close_date", "stage", "probability", "type"]
+    },
+    {
+      "name": "Ticket",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "case_number", "subject", "priority", "status", "description", "type", "origin"]
+    },
+    {
+      "name": "Article",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "title", "content"]
+    }
+  ],
+  "auth": {
+    "envVars": ["SALESFORCE_ACCESS_TOKEN", "SALESFORCE_BASE_URL"],
+    "scheme": "oauth2"
+  },
+  "repo": "agentlang-hub/resolvers",
+  "version": "0.0.1"
+}

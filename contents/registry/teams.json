@@ -1,0 +1,29 @@
+{
+  "name": "teams",
+  "service": "microsoft-teams",
+  "description": "Interact with Microsoft Teams: list teams and channels, send messages, reply to threads, and send direct messages",
+  "tags": ["microsoft-teams", "teams", "messaging", "chat", "channels", "collaboration"],
+  "entities": [
+    {
+      "name": "Team",
+      "operations": ["query"],
+      "attributes": ["id", "displayName", "description"]
+    },
+    {
+      "name": "Channel",
+      "operations": ["query"],
+      "attributes": ["id", "displayName", "membershipType"]
+    },
+    {
+      "name": "Message",
+      "operations": ["query"],
+      "attributes": ["id", "body", "from", "createdDateTime"]
+    }
+  ],
+  "auth": {
+    "envVars": ["INTEG_MANAGER_HOST"],
+    "scheme": "delegated"
+  },
+  "repo": "agentlang-hub/resolvers",
+  "version": "0.0.1"
+}

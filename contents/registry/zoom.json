@@ -1,0 +1,34 @@
+{
+  "name": "zoom",
+  "service": "zoom",
+  "description": "Manage Zoom users, meetings, webinars, and recordings via the Zoom REST API",
+  "tags": ["zoom", "video", "meetings", "webinars", "recordings", "conferencing"],
+  "entities": [
+    {
+      "name": "User",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "email", "first_name", "last_name", "display_name", "type", "role_name", "status"]
+    },
+    {
+      "name": "Meeting",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "uuid", "host_id", "topic", "type", "status", "start_time", "duration", "timezone", "join_url"]
+    },
+    {
+      "name": "Webinar",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "uuid", "host_id", "topic", "type", "start_time", "duration", "timezone", "join_url", "registration_url"]
+    },
+    {
+      "name": "Recording",
+      "operations": ["query", "delete"],
+      "attributes": ["id", "uuid", "host_id", "topic", "start_time", "duration", "total_size", "share_url", "recording_files"]
+    }
+  ],
+  "auth": {
+    "envVars": ["ZOOM_ACCOUNT_ID", "ZOOM_CLIENT_ID", "ZOOM_CLIENT_SECRET"],
+    "scheme": "oauth2"
+  },
+  "repo": "agentlang-hub/resolvers",
+  "version": "0.0.1"
+}

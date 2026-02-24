@@ -1,0 +1,39 @@
+{
+  "name": "box-resolver",
+  "service": "box",
+  "description": "Manage Box cloud storage files, folders, and users with OAuth2 authentication",
+  "tags": ["box", "cloud-storage", "files", "folders", "documents"],
+  "entities": [
+    {
+      "name": "File",
+      "operations": ["query", "update", "delete"],
+      "attributes": ["id", "name", "download_url", "modified_at"]
+    },
+    {
+      "name": "Folder",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "name", "modified_at", "url"]
+    },
+    {
+      "name": "User",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "email", "first_name", "last_name"]
+    },
+    {
+      "name": "FileContent",
+      "operations": ["query"],
+      "attributes": ["id", "name", "content", "size", "modified_at"]
+    },
+    {
+      "name": "FolderContent",
+      "operations": ["query"],
+      "attributes": ["files", "folders", "next_marker"]
+    }
+  ],
+  "auth": {
+    "envVars": ["BOX_ACCESS_TOKEN", "BOX_CLIENT_ID", "BOX_CLIENT_SECRET"],
+    "scheme": "oauth2"
+  },
+  "repo": "agentlang-hub/resolvers",
+  "version": "0.0.1"
+}

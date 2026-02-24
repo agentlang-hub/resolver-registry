@@ -1,0 +1,24 @@
+{
+  "name": "servicenow",
+  "service": "servicenow",
+  "description": "Manage ServiceNow incidents and tasks with assignment workflows",
+  "tags": ["servicenow", "itsm", "incidents", "tasks", "it-service", "helpdesk"],
+  "entities": [
+    {
+      "name": "incident",
+      "operations": ["query", "update"],
+      "attributes": ["sys_id", "status", "data"]
+    },
+    {
+      "name": "task",
+      "operations": ["query", "update"],
+      "attributes": ["sys_id", "status", "data"]
+    }
+  ],
+  "auth": {
+    "envVars": ["SERVICENOW_INSTANCE_URL", "SERVICENOW_USERNAME", "SERVICENOW_PASSWORD"],
+    "scheme": "basic"
+  },
+  "repo": "agentlang-hub/resolvers",
+  "version": "0.0.1"
+}

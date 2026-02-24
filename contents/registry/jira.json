@@ -1,0 +1,39 @@
+{
+  "name": "jira",
+  "service": "jira",
+  "description": "Manage Jira Cloud issues, projects, issue types, users, and statuses",
+  "tags": ["jira", "atlassian", "issues", "project-management", "agile", "tickets"],
+  "entities": [
+    {
+      "name": "Issue",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "key", "summary", "issue_type", "status", "assignee", "project_id", "project_key", "comments"]
+    },
+    {
+      "name": "Project",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "key", "name", "url", "project_type_key"]
+    },
+    {
+      "name": "IssueType",
+      "operations": ["query"],
+      "attributes": ["id", "project_id", "name", "description"]
+    },
+    {
+      "name": "User",
+      "operations": ["query"],
+      "attributes": ["account_id", "display_name", "email_address", "active", "time_zone"]
+    },
+    {
+      "name": "Status",
+      "operations": ["query"],
+      "attributes": ["id", "name", "description", "status_category"]
+    }
+  ],
+  "auth": {
+    "envVars": ["JIRA_ACCESS_TOKEN", "JIRA_BASE_URL"],
+    "scheme": "bearer"
+  },
+  "repo": "agentlang-hub/resolvers",
+  "version": "0.0.1"
+}

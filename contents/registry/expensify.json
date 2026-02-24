@@ -1,0 +1,29 @@
+{
+  "name": "expensify",
+  "service": "expensify",
+  "description": "Manage Expensify expenses, reports, and policies via the Expensify Integration Server API",
+  "tags": ["expensify", "expenses", "reports", "finance", "accounting", "reimbursement"],
+  "entities": [
+    {
+      "name": "Expense",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "report_id", "merchant", "amount", "currency", "category", "created", "modified", "tag", "employee_email"]
+    },
+    {
+      "name": "Report",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "report_name", "status", "total", "currency", "created", "modified", "employee_email", "policy_id", "expense_count"]
+    },
+    {
+      "name": "Policy",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "name", "output_currency", "created", "modified", "employee_count", "owner_email"]
+    }
+  ],
+  "auth": {
+    "envVars": ["EXPENSIFY_PARTNER_USER_ID", "EXPENSIFY_PARTNER_USER_SECRET"],
+    "scheme": "api-key-pair"
+  },
+  "repo": "agentlang-hub/resolvers",
+  "version": "0.0.1"
+}

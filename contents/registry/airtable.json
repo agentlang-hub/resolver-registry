@@ -1,0 +1,34 @@
+{
+  "name": "airtable",
+  "service": "airtable",
+  "description": "Manage Airtable bases, tables, fields, and records via the Airtable REST API",
+  "tags": ["airtable", "database", "spreadsheet", "no-code", "records"],
+  "entities": [
+    {
+      "name": "Base",
+      "operations": ["query"],
+      "attributes": ["id", "name", "permission_level"]
+    },
+    {
+      "name": "Table",
+      "operations": ["query"],
+      "attributes": ["id", "name", "description", "base_id"]
+    },
+    {
+      "name": "Field",
+      "operations": ["query"],
+      "attributes": ["id", "name", "type", "description", "table_id"]
+    },
+    {
+      "name": "Record",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "created_time", "fields", "table_id", "base_id"]
+    }
+  ],
+  "auth": {
+    "envVars": ["AIRTABLE_API_KEY", "AIRTABLE_BASE_IDS"],
+    "scheme": "bearer"
+  },
+  "repo": "agentlang-hub/resolvers",
+  "version": "0.0.1"
+}

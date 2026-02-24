@@ -1,0 +1,39 @@
+{
+  "name": "github",
+  "service": "github",
+  "description": "Manage GitHub issues, repositories, files, organizations, and users via the GitHub REST API",
+  "tags": ["github", "git", "issues", "repositories", "pull-requests", "code", "version-control"],
+  "entities": [
+    {
+      "name": "Issue",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "owner", "repo", "issue_number", "title", "author", "state", "body", "date_created"]
+    },
+    {
+      "name": "Repository",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "owner", "name", "full_name", "description", "url", "date_created"]
+    },
+    {
+      "name": "File",
+      "operations": ["query", "update", "delete"],
+      "attributes": ["id", "name", "url", "last_modified_date"]
+    },
+    {
+      "name": "Organization",
+      "operations": ["query"],
+      "attributes": ["id", "login", "name", "url", "description"]
+    },
+    {
+      "name": "User",
+      "operations": ["query"],
+      "attributes": ["id", "login", "name", "url", "email"]
+    }
+  ],
+  "auth": {
+    "envVars": ["GITHUB_ACCESS_TOKEN"],
+    "scheme": "bearer"
+  },
+  "repo": "agentlang-hub/resolvers",
+  "version": "0.0.1"
+}

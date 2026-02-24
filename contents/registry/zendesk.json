@@ -1,0 +1,59 @@
+{
+  "name": "zendesk",
+  "service": "zendesk",
+  "description": "Manage Zendesk support tickets, users, organizations, and Help Center articles, sections, and categories",
+  "tags": ["zendesk", "support", "tickets", "helpdesk", "knowledge-base", "customer-service"],
+  "entities": [
+    {
+      "name": "Ticket",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "subject", "description", "status", "priority", "type", "requester_id", "assignee_id", "tags"]
+    },
+    {
+      "name": "TicketComment",
+      "operations": ["query", "update"],
+      "attributes": ["id", "ticket_id", "author_id", "body", "public", "created_at"]
+    },
+    {
+      "name": "User",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "name", "email", "role", "organization_id", "active"]
+    },
+    {
+      "name": "Organization",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "name", "details", "notes", "group_id"]
+    },
+    {
+      "name": "Category",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "name", "description", "position", "locale"]
+    },
+    {
+      "name": "Section",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "name", "description", "category_id", "position", "locale"]
+    },
+    {
+      "name": "Article",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "title", "body", "locale", "section_id", "author_id", "draft", "promoted"]
+    },
+    {
+      "name": "UserSegment",
+      "operations": ["query"],
+      "attributes": ["id", "name", "user_type", "built_in"]
+    },
+    {
+      "name": "PermissionGroup",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "name", "publish", "edit", "built_in"]
+    }
+  ],
+  "auth": {
+    "envVars": ["ZENDESK_SUBDOMAIN", "ZENDESK_EMAIL", "ZENDESK_API_TOKEN"],
+    "scheme": "basic"
+  },
+  "repo": "agentlang-hub/resolvers",
+  "version": "0.0.1"
+}

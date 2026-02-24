@@ -1,0 +1,29 @@
+{
+  "name": "gmail",
+  "service": "gmail",
+  "description": "Send, read, and manage Gmail emails, labels, and attachments via the Gmail API",
+  "tags": ["gmail", "google", "email", "inbox", "attachments", "labels"],
+  "entities": [
+    {
+      "name": "Email",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "sender", "recipients", "date", "subject", "body", "thread_id", "attachments"]
+    },
+    {
+      "name": "Label",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "name", "type", "messages_total", "messages_unread"]
+    },
+    {
+      "name": "Attachments",
+      "operations": ["query"],
+      "attributes": ["filename", "file_path", "mime_type", "size", "attachment_id"]
+    }
+  ],
+  "auth": {
+    "envVars": ["GMAIL_ACCESS_TOKEN", "GMAIL_CLIENT_ID", "GMAIL_CLIENT_SECRET", "GMAIL_REFRESH_TOKEN"],
+    "scheme": "oauth2"
+  },
+  "repo": "agentlang-hub/resolvers",
+  "version": "0.0.1"
+}

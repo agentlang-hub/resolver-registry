@@ -1,0 +1,64 @@
+{
+  "name": "stripe",
+  "service": "stripe",
+  "description": "Manage Stripe customers, products, prices, subscriptions, invoices, payments, charges, refunds, and payouts",
+  "tags": ["stripe", "payments", "billing", "subscriptions", "invoices", "charges", "finance"],
+  "entities": [
+    {
+      "name": "Customer",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "name", "email", "phone", "description", "balance", "currency", "metadata"]
+    },
+    {
+      "name": "Product",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "name", "description", "active", "default_price", "type", "metadata"]
+    },
+    {
+      "name": "Price",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "currency", "unit_amount", "product", "type", "recurring", "active"]
+    },
+    {
+      "name": "Subscription",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "customer", "status", "current_period_start", "current_period_end", "items"]
+    },
+    {
+      "name": "Invoice",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "customer", "status", "amount_due", "amount_paid", "currency", "due_date"]
+    },
+    {
+      "name": "PaymentIntent",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "amount", "currency", "customer", "status", "payment_method", "description"]
+    },
+    {
+      "name": "Charge",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "amount", "currency", "status", "customer", "paid", "refunded", "description"]
+    },
+    {
+      "name": "Refund",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "amount", "currency", "status", "charge", "payment_intent", "reason"]
+    },
+    {
+      "name": "Payout",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "amount", "currency", "status", "arrival_date", "method", "type"]
+    },
+    {
+      "name": "InvoiceItem",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "amount", "currency", "customer", "description", "invoice", "quantity"]
+    }
+  ],
+  "auth": {
+    "envVars": ["STRIPE_API_KEY"],
+    "scheme": "bearer"
+  },
+  "repo": "agentlang-hub/resolvers",
+  "version": "0.0.1"
+}

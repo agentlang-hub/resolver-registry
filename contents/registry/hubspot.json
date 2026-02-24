@@ -1,0 +1,39 @@
+{
+  "name": "hubspot",
+  "service": "hubspot",
+  "description": "Manage HubSpot CRM contacts, companies, deals, owners, and tasks",
+  "tags": ["hubspot", "crm", "contacts", "deals", "sales", "marketing"],
+  "entities": [
+    {
+      "name": "Contact",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "first_name", "last_name", "email", "job_title", "lead_status", "lifecycle_stage", "owner"]
+    },
+    {
+      "name": "Company",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "name", "industry", "description", "country", "city", "website_url", "owner"]
+    },
+    {
+      "name": "Deal",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "deal_name", "deal_stage", "amount", "close_date", "pipeline", "priority", "owner"]
+    },
+    {
+      "name": "Owner",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "email", "first_name", "last_name", "user_id"]
+    },
+    {
+      "name": "Task",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "title", "task_type", "priority", "status", "due_date", "description", "owner"]
+    }
+  ],
+  "auth": {
+    "envVars": ["HUBSPOT_ACCESS_TOKEN"],
+    "scheme": "bearer"
+  },
+  "repo": "agentlang-hub/resolvers",
+  "version": "0.0.1"
+}

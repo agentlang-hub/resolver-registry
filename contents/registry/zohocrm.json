@@ -1,0 +1,44 @@
+{
+  "name": "zohocrm",
+  "service": "zoho-crm",
+  "description": "Manage Zoho CRM leads, contacts, accounts, deals, tasks, and notes",
+  "tags": ["zoho", "crm", "leads", "contacts", "deals", "accounts", "sales"],
+  "entities": [
+    {
+      "name": "Lead",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "first_name", "last_name", "email", "company", "phone", "lead_source", "lead_status", "owner"]
+    },
+    {
+      "name": "Contact",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "first_name", "last_name", "email", "phone", "account_id", "title", "department", "owner"]
+    },
+    {
+      "name": "Account",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "account_name", "website", "phone", "industry", "billing_city", "billing_country", "owner"]
+    },
+    {
+      "name": "Deal",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "deal_name", "stage", "amount", "closing_date", "pipeline", "account_id", "contact_id", "owner"]
+    },
+    {
+      "name": "Task",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "subject", "status", "priority", "due_date", "owner", "description"]
+    },
+    {
+      "name": "Note",
+      "operations": ["create", "query", "update", "delete"],
+      "attributes": ["id", "note_title", "note_content", "parent_id", "owner"]
+    }
+  ],
+  "auth": {
+    "envVars": ["ZOHO_CRM_ACCESS_TOKEN", "ZOHO_CRM_CLIENT_ID", "ZOHO_CRM_CLIENT_SECRET", "ZOHO_CRM_REFRESH_TOKEN"],
+    "scheme": "oauth2"
+  },
+  "repo": "agentlang-hub/resolvers",
+  "version": "0.0.1"
+}
