@@ -1,6 +1,6 @@
 # Agentlang Resolver Registry
 
-A public registry of resolver metadata for the [Agentlang](https://agentlang.io) platform. Resolvers are components that route entity CRUD operations through JavaScript functions that call external APIs (GitHub, Stripe, Slack, etc.) instead of default database storage. This registry allows tools like [AgentCraft](https://github.com/agentlang-ai/agentcraft) to discover and integrate resolvers automatically.
+A public registry of resolver metadata for the [Agentlang](https://github.com/agentlang-ai/agentlang) platform. Resolvers are components that route entity CRUD operations through JavaScript functions that call external APIs (GitHub, Stripe, Slack, etc.) instead of default database storage. This registry allows tools like [AgentCraft](https://github.com/agentlang-ai/agentcraft) to discover and integrate resolvers automatically.
 
 ## Directory Structure
 
